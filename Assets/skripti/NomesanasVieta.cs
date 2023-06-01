@@ -9,9 +9,17 @@ public class NomesanasVieta : MonoBehaviour, IDropHandler {
 	private Vector2 vietasIzm, velkObjIzm;
 	private float xIzmeruStarp, yIzmeruStarp;
 	public Objekti objektuSkripts;
+	private CanvasGroup kanvasGrupa;
+	public GameObject beiguEkrans;
+
+
+	void Start(){
+		
+	}
 
 
 	public void OnDrop(PointerEventData eventData){
+		
 		if (eventData.pointerDrag != null) {
 			if (eventData.pointerDrag.tag.Equals (tag)) {
 				vietasZRot = GetComponent<RectTransform> ().transform.eulerAngles.z;
@@ -31,40 +39,52 @@ public class NomesanasVieta : MonoBehaviour, IDropHandler {
 
 					switch (eventData.pointerDrag.tag) {
 					case"atkritumi":
-						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot[1]);
+						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [1]);
+
 						break;
 					case"medicina":
-						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot[2]);
+						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [2]);
+
 						break;
 					case"buss":
-						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot[3]);
+						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [3]);
+
 						break;
 					case"b2":
-						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot[4]);
+						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [4]);
+					
 						break;
 					case"cements":
-						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot[5]);
+						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [5]);
+
 						break;
 					case"e46":
-						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot[6]);
+						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [6]);
+
 						break;
 					case"e61":
-						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot[7]);
+						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [7]);
+
 						break;
 					case"Eskavators":
-						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot[8]);
+						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [8]);
+					
 						break;
 					case"Policija":
-						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot[9]);
+						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [9]);
+
 						break;
 					case"Traktors1":
-						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot[10]);
+						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [10]);
+
 						break;
 					case"Traktors5":
-						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot[11]);
+						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [11]);
+
 						break;
 					case"UgunsDzeseji":
 						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot[12]);
+
 						break;
 					
 
@@ -72,6 +92,7 @@ public class NomesanasVieta : MonoBehaviour, IDropHandler {
 
 
 					}
+
 				}
 			} else {
 				objektuSkripts.vaiIstajaVieta = false;
@@ -115,6 +136,22 @@ public class NomesanasVieta : MonoBehaviour, IDropHandler {
 					break;
 				}
 			}
+
+
 		}
+		if(objektuSkripts.atraPalidziba.GetComponent<CanvasGroup>().blocksRaycasts == false &&
+			objektuSkripts.atkritumuMasina.GetComponent<CanvasGroup>().blocksRaycasts == false&&
+			objektuSkripts.b2.GetComponent<CanvasGroup>().blocksRaycasts == false&&
+			objektuSkripts.CementaMasina.GetComponent<CanvasGroup>().blocksRaycasts == false&&
+			objektuSkripts.e46.GetComponent<CanvasGroup>().blocksRaycasts == false&&
+			objektuSkripts.e61.GetComponent<CanvasGroup>().blocksRaycasts == false&&
+			objektuSkripts.Eskavators.GetComponent<CanvasGroup>().blocksRaycasts == false&&
+			objektuSkripts.Policija.GetComponent<CanvasGroup>().blocksRaycasts == false&&
+			objektuSkripts.Traktors1.GetComponent<CanvasGroup>().blocksRaycasts == false&&
+			objektuSkripts.Traktors5.GetComponent<CanvasGroup>().blocksRaycasts == false&&
+			objektuSkripts.UgunsDzeseji.GetComponent<CanvasGroup>().blocksRaycasts == false){
+			Debug.Log ("Visas Mašīnas ieliktas vietā");
+			beiguEkrans.SetActive(!beiguEkrans.activeSelf);
 	}
+}
 }

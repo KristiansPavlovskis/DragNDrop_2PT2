@@ -37,6 +37,7 @@ public class DragDropSkripts : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 		objektuSkripts.vaiIstajaVieta = false;
 
 	}
-	
+
+
 
 }
