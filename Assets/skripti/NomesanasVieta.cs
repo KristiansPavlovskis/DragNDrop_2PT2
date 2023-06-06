@@ -12,54 +12,6 @@ public class NomesanasVieta : MonoBehaviour, IDropHandler {
 	private CanvasGroup kanvasGrupa;
 	public GameObject beiguEkrans;
 	public static int rezultats=0;
-	//private bool Taimers = true;
-	//public float TaimeraStarts;
-	//public float TaimeraBeigas;
-
-	/*private void Start()
-	{
-		Taimers = true;
-	
-		SaktTimer();
-	}
-	private void Update(){
-		if (Taimers)
-		{
-			if (rezultats < 12 && !BeiguScreen.activeSelf)
-			{
-				TaimeraBeigas = Time.time;
-			}
-			else
-			{
-				Taimers = false;
-				BeigtTimer();
-			}
-		}
-	}
-	private void SaktTimer()
-	{
-		TaimeraStarts = Time.time;
-		Debug.Log("Timer started!");
-	}
-
-	private void BeigtTimer()
-	{
-		TaimeraBeigas = Time.time;
-		float duration = TaimeraBeigas - TaimeraStarts;
-		Debug.Log("Laiks Beidzās! Laiks: " + duration.ToString("F2") + " Sekundes");
-		TextaLaiks.GetComponent<Text>().text ="Laiks: " +duration.ToString("F2") + " Sekundes";
-		CikNoCik.GetComponent<Text>().text=PareizasAtbildes+"/10";
-		if(PareizasAtbildes>=9f){
-			Zvaigzne1.SetActive(!Zvaigzne1.activeSelf);
-			Zvaigzne2.SetActive(!Zvaigzne2.activeSelf);
-			Zvaigzne3.SetActive(!Zvaigzne3.activeSelf);
-		}else if(PareizasAtbildes>=5f && PareizasAtbildes <=8){
-			Zvaigzne1.SetActive(!Zvaigzne1.activeSelf);
-			Zvaigzne2.SetActive(!Zvaigzne2.activeSelf);
-		}else{
-			Zvaigzne1.SetActive(!Zvaigzne1.activeSelf);
-		}
-	}*/
 
 	public void OnDrop(PointerEventData eventData){
 		

@@ -8,6 +8,7 @@ public class AinuParsledzejs : MonoBehaviour {
 	// Use this for initialization
 	public void UzSakumu(){
 		SceneManager.LoadScene (1, LoadSceneMode.Single);
+		NomesanasVieta.rezultats=0;
 	}
 	public void UzSpeli(){
 		SceneManager.LoadScene (0, LoadSceneMode.Single);
