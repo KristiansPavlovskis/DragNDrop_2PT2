@@ -11,12 +11,55 @@ public class NomesanasVieta : MonoBehaviour, IDropHandler {
 	public Objekti objektuSkripts;
 	private CanvasGroup kanvasGrupa;
 	public GameObject beiguEkrans;
+	public static int rezultats=0;
+	//private bool Taimers = true;
+	//public float TaimeraStarts;
+	//public float TaimeraBeigas;
 
-
-	void Start(){
-		
+	/*private void Start()
+	{
+		Taimers = true;
+	
+		SaktTimer();
+	}
+	private void Update(){
+		if (Taimers)
+		{
+			if (rezultats < 12 && !BeiguScreen.activeSelf)
+			{
+				TaimeraBeigas = Time.time;
+			}
+			else
+			{
+				Taimers = false;
+				BeigtTimer();
+			}
+		}
+	}
+	private void SaktTimer()
+	{
+		TaimeraStarts = Time.time;
+		Debug.Log("Timer started!");
 	}
 
+	private void BeigtTimer()
+	{
+		TaimeraBeigas = Time.time;
+		float duration = TaimeraBeigas - TaimeraStarts;
+		Debug.Log("Laiks Beidzās! Laiks: " + duration.ToString("F2") + " Sekundes");
+		TextaLaiks.GetComponent<Text>().text ="Laiks: " +duration.ToString("F2") + " Sekundes";
+		CikNoCik.GetComponent<Text>().text=PareizasAtbildes+"/10";
+		if(PareizasAtbildes>=9f){
+			Zvaigzne1.SetActive(!Zvaigzne1.activeSelf);
+			Zvaigzne2.SetActive(!Zvaigzne2.activeSelf);
+			Zvaigzne3.SetActive(!Zvaigzne3.activeSelf);
+		}else if(PareizasAtbildes>=5f && PareizasAtbildes <=8){
+			Zvaigzne1.SetActive(!Zvaigzne1.activeSelf);
+			Zvaigzne2.SetActive(!Zvaigzne2.activeSelf);
+		}else{
+			Zvaigzne1.SetActive(!Zvaigzne1.activeSelf);
+		}
+	}*/
 
 	public void OnDrop(PointerEventData eventData){
 		
@@ -32,6 +75,7 @@ public class NomesanasVieta : MonoBehaviour, IDropHandler {
 
 				if ((rotacijasStarpiba <= 6 || (rotacijasStarpiba >=354 && rotacijasStarpiba<=360) ) && xIzmeruStarp<= 0.1f && yIzmeruStarp <=0.1f) {
 					objektuSkripts.vaiIstajaVieta = true;
+				
 					eventData.pointerDrag.GetComponent<RectTransform> ().anchoredPosition = GetComponent<RectTransform> ().anchoredPosition;
 
 					eventData.pointerDrag.GetComponent<RectTransform> ().localRotation = GetComponent<RectTransform> ().localRotation;
@@ -40,43 +84,44 @@ public class NomesanasVieta : MonoBehaviour, IDropHandler {
 					switch (eventData.pointerDrag.tag) {
 					case"atkritumi":
 						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [1]);
-
+				
 						break;
 					case"medicina":
 						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [2]);
-
+					
 						break;
 					case"buss":
 						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [3]);
-
+					
 						break;
 					case"b2":
 						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [4]);
-					
+			
 						break;
 					case"cements":
 						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [5]);
-
+				
 						break;
 					case"e46":
 						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [6]);
-
+				
+				
 						break;
 					case"e61":
 						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [7]);
-
+		
 						break;
 					case"Eskavators":
 						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [8]);
-					
+			
 						break;
 					case"Policija":
 						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [9]);
-
+				
 						break;
 					case"Traktors1":
 						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [10]);
-
+					
 						break;
 					case"Traktors5":
 						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot [11]);
@@ -84,7 +129,7 @@ public class NomesanasVieta : MonoBehaviour, IDropHandler {
 						break;
 					case"UgunsDzeseji":
 						objektuSkripts.audioAvots.PlayOneShot (objektuSkripts.skanasKoAtskanot[12]);
-
+					
 						break;
 					
 
@@ -92,6 +137,8 @@ public class NomesanasVieta : MonoBehaviour, IDropHandler {
 
 
 					}
+					rezultats++;
+					Debug.Log (rezultats);
 
 				}
 			} else {
@@ -139,19 +186,27 @@ public class NomesanasVieta : MonoBehaviour, IDropHandler {
 
 
 		}
-		if(objektuSkripts.atraPalidziba.GetComponent<CanvasGroup>().blocksRaycasts == false &&
-			objektuSkripts.atkritumuMasina.GetComponent<CanvasGroup>().blocksRaycasts == false&&
-			objektuSkripts.b2.GetComponent<CanvasGroup>().blocksRaycasts == false&&
-			objektuSkripts.CementaMasina.GetComponent<CanvasGroup>().blocksRaycasts == false&&
-			objektuSkripts.e46.GetComponent<CanvasGroup>().blocksRaycasts == false&&
-			objektuSkripts.e61.GetComponent<CanvasGroup>().blocksRaycasts == false&&
-			objektuSkripts.Eskavators.GetComponent<CanvasGroup>().blocksRaycasts == false&&
-			objektuSkripts.Policija.GetComponent<CanvasGroup>().blocksRaycasts == false&&
-			objektuSkripts.Traktors1.GetComponent<CanvasGroup>().blocksRaycasts == false&&
-			objektuSkripts.Traktors5.GetComponent<CanvasGroup>().blocksRaycasts == false&&
-			objektuSkripts.UgunsDzeseji.GetComponent<CanvasGroup>().blocksRaycasts == false){
+		//if (objektuSkripts.vaiIstajaVieta = true) {
+		//	rezultats=rezultats+1;
+		//	Debug.Log (rezultats);
+		//}
+		if(rezultats==12f){
 			Debug.Log ("Visas Mašīnas ieliktas vietā");
 			beiguEkrans.SetActive(!beiguEkrans.activeSelf);
-	}
+		}
+		//if(objektuSkripts.atraPalidziba.GetComponent<CanvasGroup>().blocksRaycasts == false &&
+			//objektuSkripts.atkritumuMasina.GetComponent<CanvasGroup>().blocksRaycasts == false&&
+			//objektuSkripts.b2.GetComponent<CanvasGroup>().blocksRaycasts == false&&
+			//objektuSkripts.CementaMasina.GetComponent<CanvasGroup>().blocksRaycasts == false&&
+			//objektuSkripts.e46.GetComponent<CanvasGroup>().blocksRaycasts == false&&
+		///	objektuSkripts.e61.GetComponent<CanvasGroup>().blocksRaycasts == false&&
+		//	objektuSkripts.Eskavators.GetComponent<CanvasGroup>().blocksRaycasts == false&&
+		//	objektuSkripts.Policija.GetComponent<CanvasGroup>().blocksRaycasts == false&&
+		//	objektuSkripts.Traktors1.GetComponent<CanvasGroup>().blocksRaycasts == false&&
+		//	objektuSkripts.Traktors5.GetComponent<CanvasGroup>().blocksRaycasts == false&&
+		//	objektuSkripts.UgunsDzeseji.GetComponent<CanvasGroup>().blocksRaycasts == false){
+		//	Debug.Log ("Visas Mašīnas ieliktas vietā");
+		//	beiguEkrans.SetActive(!beiguEkrans.activeSelf);
+	//}
 }
 }

@@ -10,7 +10,6 @@ public class DragDropSkripts : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 	private CanvasGroup kanvasGrupa;
 	private RectTransform velkObjRecTransf;
 
-
 	void Start () {
 
 		kanvasGrupa = GetComponent<CanvasGroup> ();
