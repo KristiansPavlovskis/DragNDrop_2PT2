@@ -9,9 +9,13 @@ public class BeigasEkrans : MonoBehaviour
     public GameObject Zvaigzne2;
     public GameObject Zvaigzne3;
 
+	public GameObject EmptyZvaigzne1;
+	public GameObject EmptyZvaigzne2;
+	public GameObject EmptyZvaigzne3;
+
     private bool Taimers = true;
-    private float TaimeraStarts;
-    private float TaimeraBeigas;
+	private float TaimeraStarts;
+    public float TaimeraBeigas;
 
     private void Start()
     {
@@ -33,18 +37,23 @@ public class BeigasEkrans : MonoBehaviour
                 BeigtTimer();
             }
         }
+
     }
 
     private void SaktTimer()
     {
         TaimeraStarts = Time.time;
-        Debug.Log("Timer started!");
+        Debug.Log("Laiks sakas!");
     }
 
     private void BeigtTimer()
     {
         TaimeraBeigas = Time.time;
         float duration = TaimeraBeigas - TaimeraStarts;
+		if(Input.GetKey(KeyCode.T)){
+			TaimeraBeigas= TaimeraBeigas+10f;
+		}
+
         Debug.Log("Laiks Beidzās! Laiks: " + duration.ToString("F2") + " Sekundes");
         TextaLaiks.GetComponent<Text>().text = "Laiks: " + duration.ToString("F2") + " S";
 
@@ -53,18 +62,24 @@ public class BeigasEkrans : MonoBehaviour
         Zvaigzne1.SetActive(false);
         Zvaigzne2.SetActive(false);
         Zvaigzne3.SetActive(false);
+		EmptyZvaigzne1.SetActive(true);
+		EmptyZvaigzne2.SetActive(true);
+		EmptyZvaigzne3.SetActive(true);
     }
     else if (duration >= 120f) 
     {
         Zvaigzne1.SetActive(true);
         Zvaigzne2.SetActive(false);
         Zvaigzne3.SetActive(false);
+		EmptyZvaigzne2.SetActive(true);
+		EmptyZvaigzne3.SetActive(true);
     }
     else if (duration >= 60f) 
     {
         Zvaigzne1.SetActive(true);
         Zvaigzne2.SetActive(true);
         Zvaigzne3.SetActive(false);
+		EmptyZvaigzne3.SetActive(true);
     }
     else
     {
